@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recovery Connect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #c2f0c2, #8fd3a8);
+    }
+    .container {
+      width: 400px;
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+    .input-box {
+      margin-bottom: 18px;
+    }
+    .input-box label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+      font-weight: bold;
+    }
+    .input-box input,
+    .input-box select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      outline: none;
+      font-size: 15px;
+    }
+    .input-box input:focus,
+    .input-box select:focus {
+      border-color: #43a047;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #43a047;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #2e7d32;
+    }
+    .link-text {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    .link-text a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .page {
+      display: none;
+    }
+    #loginPage {
+      display: block;
+    }
+    .message {
+      text-align: center;
+      margin-bottom: 15px;
+      color: red;
+      font-size: 14px;
+    }
+    .success {
+      color: green;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- LOGIN PAGE -->
+  <div class="container page" id="loginPage">
+    <h1>Recovery Connect</h1>
+    <p class="subtitle">
+      Supporting recovery, wellness, and a healthier future
+    </p>
+    <div class="message" id="loginMessage"></div>
+    <div class="input-box">
+      <label>Username</label>
+      <input type="text" id="loginUsername" placeholder="Enter username">
+    </div>
+    <div class="input-box">
+      <label>Password</label>
+      <input type="password" id="loginPassword" placeholder="Enter password">
+    </div>
+    <button class="btn" onclick="loginUser()">Login</button>
+    <div class="link-text">
+      Don't have an account?
+      <a onclick="openCreateAccount()">Create Account</a>
+    </div>
+  </div>
+  <!-- CREATE ACCOUNT PAGE -->
+  <div class="container page" id="createAccountPage">
+    <h1>Create Account</h1>
+    <div class="message" id="createMessage"></div>
+    <div class="input-box">
+      <label>Create Username</label>
+      <input type="text" id="createUsername" placeholder="Create username">
+    </div>
+    <div class="input-box">
+      <label>Create Password</label>
+      <input type="password" id="createPassword" placeholder="Create password">
+    </div>
+    <div class="input-box">
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="Confirm password">
+    </div>
+    <button class="btn" onclick="createAccount()">
+      Create Account
+    </button>
+  </div>
+  <!-- USER DETAILS PAGE -->
+  <div class="container page" id="userDetailsPage">
+    <h1>User Information</h1>
+    <p class="success">
+      Login Successful ✔
+    </p>
+    <div class="input-box">
+      <label>Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter full name">
+    </div>
+    <div class="input-box">
+      <label>Age</label>
+      <input type="number" id="age" placeholder="Enter age">
+    </div>
+    <div class="input-box">
+      <label>Gender</label>
+      <select id="gender">
+        <option>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="input-box">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter email">
+    </div>
+    <div class="input-box">
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter phone number">
+    </div>
+    <button class="btn" onclick="saveData()">
+      Save
+    </button>
+  </div>
+  <!-- LINK SCRIPT FILE -->
+  <script src="script.js"></script>
+</body>
+</html>
